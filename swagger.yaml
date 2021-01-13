@@ -1,0 +1,70 @@
+swagger: '2.0'
+info:
+  title: 接口文档
+  description: 接口文档
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 1.0.0
+host:
+basePath: /
+schemes:
+  - http
+paths:
+  /sale/tag-list.json:
+    get:
+      tags:
+        - tag列表
+      summary: 标签列表
+      responses:
+        '200':
+          description: '[SUCCESS]获取成功'
+          schema:
+            $ref: '#/definitions/tagListResponse'
+      security:
+        - api_key: []
+
+definitions:
+  tagListResponse:
+    title: 标签列表
+    description: 标签列表
+    properties:
+      code:
+        description: 状态码
+        type: string
+        example: SUCCESS
+      msg:
+        description: 接口返回描述
+        type: string
+        example: SUCCESS
+      data:
+        type: array
+        items:
+          properties:
+            id:
+              description: id
+              type: integer
+              example: 1
+            name:
+              description: name
+              type: string
+              example: asfasf
+            url:
+              description: url
+              type: string
+              example: asfas
+          type: object
+    type: object
+  ApiResponse:
+    title: 接口返回对象
+    description: 接口返回对象
+    properties:
+      code:
+        description: 状态码
+        type: string
+        example: SUCCESS
+      msg:
+        description: 接口返回描述
+        type: string
+        example: SUCCESS
+    type: object
